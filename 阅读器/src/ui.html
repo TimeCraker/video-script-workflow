@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Aster 角色扮演续写集 · 离线精装阅读器：深夜书房多主题、书签划线、全文搜索、断点续读。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21z' fill='none' stroke='%23cf915a' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M4 18.5A2.5 2.5 0 0 1 6.5 16H20' fill='none' stroke='%23cf915a' stroke-width='1.8'/%3E%3C/svg%3E">
+<title>__TITLE__</title>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+<defs>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="4" cy="6" r="1.15" fill="currentColor"/><circle cx="4" cy="12" r="1.15" fill="currentColor"/><circle cx="4" cy="18" r="1.15" fill="currentColor"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.75" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l4.4 4.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-stats" viewBox="0 0 24 24"><path d="M5 19v-7M10 19V5M15 19v-6M20 19V8M3.5 19.5h17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7.5h9M18.5 7.5H20M4 16.5h3M11 16.5h9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="15" cy="7.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="16.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.2 14.3A8.5 8.5 0 0 1 9.7 3.8a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6.8 4.3h10.4v15.4L12 16.5l-5.2 3.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4.2 19.8l.9-4.4L16.4 4.1a2.1 2.1 0 0 1 3 3L8 18.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M14.4 5.6L8.1 12l6.3 6.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9.6 5.6L15.9 12l-6.3 6.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M18.5 12H5.5M11.5 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5.5 12h13M12.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M8.6 3.6h-5v5M15.4 3.6h5v5M8.6 20.4h-5v-5M15.4 20.4h5v-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.8 12s3.5-6.2 9.2-6.2S21.2 12 21.2 12 17.7 18.2 12 18.2 2.8 12 2.8 12z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.7" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.2 5.4v13.2l10.6-6.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.6 5.6v12.8M15.4 5.6v12.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-import" viewBox="0 0 24 24"><path d="M12 3.8V15M7.5 10.5L12 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.8 15.6v3a1.2 1.2 0 0 0 1.2 1.2h12a1.2 1.2 0 0 0 1.2-1.2v-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V5.4h4V7M7.6 7l.8 12.2h7.2L16.4 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.6l4.4 4.4L19 7.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4.6 8.8A8 8 0 1 1 4 14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4.6 4.8v4h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="8.5" cy="9.1" r="1.15" fill="currentColor"/><circle cx="12.9" cy="7.3" r="1.15" fill="currentColor"/><circle cx="16.7" cy="10.5" r="1.15" fill="currentColor"/><circle cx="8.9" cy="13.7" r="1.15" fill="currentColor"/><path d="M13.4 15.4h3a1.7 1.7 0 0 1 0 3.4 4.9 4.9 0 1 1 4.9-4.9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.1C7.2 16.5 3.8 13.3 3.8 9.9 3.8 7.4 5.8 5.4 8.3 5.4c1.6 0 3 .9 3.7 2.3.7-1.4 2.1-2.3 3.7-2.3 2.5 0 4.5 2 4.5 4.5 0 3.4-3.4 6.6-8.2 10.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-top" viewBox="0 0 24 24"><path d="M12 19V6M6.6 11.4L12 6l5.4 5.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 3.5V7H16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5H6.5A2.5 2.5 0 0 0 4 21z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+</defs>
+</svg>
+
+<div id="shelf" hidden>
+  <div class="shelf-inner">
+    <header class="shelf-head">
+      <div class="shelf-kicker">ASTER · 全本离线阅读器</div>
+      <h1 id="shelf-title"></h1>
+      <div class="shelf-sub" id="shelf-sub"></div>
+    </header>
+    <div class="shelf-stage">
+      <button class="cover" id="btn-cover" aria-label="继续阅读" title="继续阅读">
+        <span class="cover-paper">
+          <span class="cover-orn">✦</span>
+          <span class="cover-title">Aster</span>
+          <span class="cover-sub">角色扮演续写集</span>
+          <span class="cover-seal">全本 · 精装</span>
+        </span>
+      </button>
+      <div class="shelf-side">
+        <div class="resume-card">
+          <div class="rc-label">最近阅读</div>
+          <div class="rc-title" id="rc-title">—</div>
+          <div class="rc-bar"><i id="rc-bar-i"></i></div>
+          <div class="rc-meta" id="rc-meta">—</div>
+          <button class="chip-btn" id="btn-resume">继续阅读</button>
+        </div>
+        <div class="shelf-stats">
+          <div class="st-cell"><div class="st-num" id="st-read">0</div><div class="st-cap">已读篇数</div></div>
+          <div class="st-cell"><div class="st-num" id="st-pct">0%</div><div class="st-cap">总进度</div></div>
+          <div class="st-cell"><div class="st-num" id="st-words">0</div><div class="st-cap">总字数</div></div>
+        </div>
+        <div class="shelf-week" id="shelf-week"></div>
+        <div class="shelf-actions">
+          <button class="shelf-btn" id="btn-from-start">从目录开始</button>
+          <button class="shelf-btn ghost" id="btn-open-toc">打开目录</button>
+          <button class="shelf-btn ghost" id="btn-surprise">随便翻翻</button>
+          <button class="shelf-btn ghost" id="btn-shelf-stats">阅读统计</button>
+          <span class="shelf-tools">
+            <button class="icon-btn" id="btn-shelf-style" aria-label="换风格" title="换风格"><svg class="ic"><use href="#i-palette"/></svg></button>
+            <button class="icon-btn" id="btn-shelf-settings" aria-label="设置" title="设置"><svg class="ic"><use href="#i-settings"/></svg></button>
+          </span>
+        </div>
+        <button class="shelf-update" id="btn-rebuild2" title="重扫 md 目录并记住">
+          <svg class="ic"><use href="#i-refresh"/></svg>
+          <span class="su-main">更新章节</span>
+          <span class="su-dir" id="update-dir-label">选择并记住 md 目录</span>
+        </button>
+      </div>
+    </div>
+    <div class="shelf-foot">更新章节按钮会记住你的 md 目录，下次一键重扫 · 进度与书签保存在本机浏览器</div>
+  </div>
+</div>
+
+<div id="lightbox" hidden>
+  <button id="lb-close" aria-label="关闭"><svg class="ic"><use href="#i-x"/></svg></button>
+  <figure>
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+</div>
+
+<div id="flip" aria-hidden="true"><div class="flip-half flip-l"></div><div class="flip-half flip-r"></div><div class="flip-spine"></div></div>
+
+<div id="drop-hint">松开以导入 md 章节</div>
+
+<div id="spine" aria-hidden="true"><div id="spine-fill"></div></div>
+
+<aside id="sidebar" aria-label="目录">
+  <div class="side-head">
+    <div class="side-title">
+      <span class="side-book" id="side-book-name"></span>
+      <span class="side-sub" id="side-book-sub"></span>
+    </div>
+    <button class="icon-btn" id="btn-side-close" aria-label="收起目录"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+  </div>
+  <div class="side-search">
+    <svg class="ic"><use href="#i-search"/></svg>
+    <input id="toc-filter" type="text" placeholder="在目录中筛选…" aria-label="筛选目录">
+  </div>
+  <nav id="toc" aria-label="章节列表"></nav>
+  <div class="side-foot">
+    <div class="toc-pct-row">
+      <span class="toc-pct-cap">本章进度</span>
+      <input type="range" id="toc-pct" min="0" max="100" step="1" aria-label="章内进度跳转">
+      <span class="toc-pct-val" id="toc-pct-val">0%</span>
+    </div>
+    <button id="btn-import-file" class="ghost-btn"><svg class="ic"><use href="#i-import"/></svg>导入 md 章节</button>
+    <input type="file" id="file-input" accept=".md,.markdown,.txt" multiple hidden>
+    <input type="file" id="dir-input" webkitdirectory hidden>
+  </div>
+</aside>
+<div id="scrim" hidden></div>
+
+<main id="stage">
+  <header id="topbar">
+    <div class="tb-left">
+      <button class="icon-btn" id="btn-side-open" aria-label="打开目录"><svg class="ic"><use href="#i-list"/></svg></button>
+      <button class="icon-btn tb-lbl" id="btn-shelf" aria-label="书架" title="回到书架首页"><svg class="ic"><use href="#i-book"/></svg><span class="btn-label">书架</span></button>
+      <div class="tb-title">
+        <span id="tb-book" class="tb-book"></span>
+        <span id="tb-ch" class="tb-ch"></span>
+      </div>
+    </div>
+    <div class="tb-right">
+      <div class="tb-group">
+        <button class="icon-btn tb-aux" id="btn-fs-minus" aria-label="缩小字号" title="缩小字号">A−</button>
+        <button class="icon-btn tb-aux" id="btn-fs-plus" aria-label="加大字号" title="加大字号">A＋</button>
+        <button class="icon-btn tb-aux" id="btn-fontcycle" title="切换正文字体" aria-label="切换正文字体">字 宋</button>
+      </div>
+      <span class="tb-sep" aria-hidden="true"></span>
+      <div class="tb-group">
+        <button class="icon-btn" id="btn-theme" title="换风格" aria-label="换风格"><svg class="ic"><use href="#i-palette"/></svg></button>
+        <button class="icon-btn" id="btn-search" aria-label="搜索"><svg class="ic"><use href="#i-search"/></svg></button>
+        <button class="icon-btn" id="btn-bookmarks" aria-label="书签"><svg class="ic"><use href="#i-bookmark"/></svg></button>
+        <button class="icon-btn mob-hide" id="btn-stats" title="阅读统计" aria-label="阅读统计"><svg class="ic"><use href="#i-stats"/></svg></button>
+        <button class="icon-btn" id="btn-settings" aria-label="阅读设置"><svg class="ic"><use href="#i-settings"/></svg></button>
+      </div>
+      <span class="tb-sep mob-hide" aria-hidden="true"></span>
+      <div class="tb-group">
+        <button class="icon-btn" id="btn-rebuild" title="更新章节(重扫 md 文件夹)" aria-label="更新章节"><svg class="ic"><use href="#i-refresh"/></svg></button>
+        <span class="tb-pct mob-hide" id="tb-pct" aria-hidden="true">0%</span>
+        <button class="icon-btn" id="btn-focus" aria-label="沉浸模式"><svg class="ic"><use href="#i-eye"/></svg></button>
+        <button class="icon-btn mob-hide" id="btn-full" aria-label="全屏"><svg class="ic"><use href="#i-full"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="scene-nav" aria-label="本章场景" hidden></nav>
+
+  <article id="chapter"></article>
+
+  <footer id="ch-foot">
+    <button id="btn-prev" class="nav-btn nav-prev" disabled><svg class="ic"><use href="#i-arrow-l"/></svg><span>上一章</span></button>
+    <button id="btn-shelf-foot" class="nav-btn" title="回到书架首页"><svg class="ic"><use href="#i-book"/></svg><span>书架</span></button>
+    <div class="ch-foot-mid">
+      <span id="foot-pct">0%</span>
+      <span class="dot">·</span>
+      <span id="foot-pos"></span>
+    </div>
+    <button id="btn-next" class="nav-btn nav-next"><span id="btn-next-label">下一章</span><svg class="ic"><use href="#i-arrow-r"/></svg></button>
+  </footer>
+</main>
+
+<div id="toast" role="status" aria-live="polite" hidden>
+  <div class="toast-inner">
+    <div id="toast-text"></div>
+    <div class="toast-actions">
+      <button id="toast-go" class="chip-btn">继续阅读</button>
+      <button id="toast-close" class="chip-btn ghost">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div id="selbar" hidden>
+  <button id="sel-mark" title="划线"><svg class="ic"><use href="#i-pen"/></svg>划线</button>
+  <button id="sel-bm" title="加书签"><svg class="ic"><use href="#i-bookmark"/></svg>书签</button>
+  <button id="sel-close" class="sel-x" title="关闭" aria-label="关闭标注"><svg class="ic"><use href="#i-x"/></svg></button>
+</div>
+
+<div id="auto-pill">
+  <button id="auto-minus" class="icon-btn" aria-label="减速"><svg class="ic"><use href="#i-minus"/></svg></button>
+  <button id="auto-toggle" class="icon-btn" aria-label="暂停/继续"><svg class="ic"><use href="#i-pause"/></svg></button>
+  <button id="auto-plus" class="icon-btn" aria-label="加速"><svg class="ic"><use href="#i-plus"/></svg></button>
+  <span id="auto-speed"></span>
+</div>
+
+<div id="tts-pill" hidden>
+  <button id="tts-minus" class="icon-btn" aria-label="语速变慢"><svg class="ic"><use href="#i-minus"/></svg></button>
+  <button id="tts-toggle" class="icon-btn" aria-label="开始朗读"><svg class="ic"><use href="#i-play"/></svg></button>
+  <button id="tts-plus" class="icon-btn" aria-label="语速变快"><svg class="ic"><use href="#i-plus"/></svg></button>
+  <span id="tts-speed">1×</span>
+</div>
+
+<button id="btn-top" aria-label="回到顶部" title="回到顶部"><svg class="ic"><use href="#i-top"/></svg></button>
+
+<div id="break-banner" hidden role="status">
+  <span id="break-txt">已经连续专心读了 30 分钟，起来伸个懒腰</span>
+  <button id="break-rest" class="chip-btn">休息一下</button>
+  <button id="break-later" class="chip-btn ghost">再读 10 分钟</button>
+  <button id="break-x" class="icon-btn" aria-label="关闭提醒"><svg class="ic"><use href="#i-x"/></svg></button>
+</div>
+
+<div id="celebrate" hidden role="status">
+  <div class="cel-card"><svg class="ic"><use href="#i-check"/></svg><span>今日阅读目标达成</span></div>
+</div>
+
+<div id="next-hint" hidden>
+  <span id="next-txt">3 秒后自动进入下一章</span>
+  <button id="next-go" class="chip-btn">看下一章</button>
+  <button id="next-cancel" class="chip-btn ghost">留在这</button>
+</div>
+
+<div id="anchor-pill" hidden>
+  <button id="anchor-go" class="anchor-btn"><svg class="ic"><use href="#i-arrow-l"/></svg><span id="anchor-to">返回原处</span></button>
+  <button id="anchor-x" class="anchor-x" aria-label="关闭返回提示"><svg class="ic"><use href="#i-x"/></svg></button>
+</div>
+
+<button id="btn-style" aria-label="换风格" title="换风格"><svg class="ic"><use href="#i-palette"/></svg></button>
+
+<div id="style-overlay" hidden role="dialog" aria-modal="true" aria-label="选择阅读风格">
+  <div class="so-card">
+    <div class="so-head">
+      <h2>选择你的阅读风格</h2>
+      <button class="icon-btn" id="so-close" aria-label="关闭"><svg class="ic"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="so-body">
+      <div class="so-label">主题配色</div>
+      <div class="so-themes">
+        <button class="style-card" data-theme-opt="night">
+          <span class="sc-preview" style="background:#1e1811"><i class="sc-ink" style="background:#e7dcc6"></i><i class="sc-ink2" style="background:#6f6452"></i><i class="sc-mono" style="background:#b7a98e"></i><i class="sc-dlg" style="background:#cd8f52"></i></span>
+          <span class="sc-name">深夜书房</span><span class="sc-tip">暖炭黑 · 琥珀烛光 · 默认</span>
+        </button>
+        <button class="style-card" data-theme-opt="day">
+          <span class="sc-preview" style="background:#fbf8f1"><i class="sc-ink" style="background:#2e2820"></i><i class="sc-ink2" style="background:#b9af9d"></i><i class="sc-mono" style="background:#6b6255"></i><i class="sc-dlg" style="background:#a3663a"></i></span>
+          <span class="sc-name">素纸白昼</span><span class="sc-tip">奶油亮色 · 墨水棕</span>
+        </button>
+        <button class="style-card" data-theme-opt="dusk">
+          <span class="sc-preview" style="background:#1a1f2b"><i class="sc-ink" style="background:#d9dde8"></i><i class="sc-ink2" style="background:#5c6885"></i><i class="sc-mono" style="background:#a3abbd"></i><i class="sc-dlg" style="background:#8fa6cc"></i></span>
+          <span class="sc-name">薄暮</span><span class="sc-tip">冷灰蓝夜色</span>
+        </button>
+        <button class="style-card" data-theme-opt="sepia">
+          <span class="sc-preview" style="background:#f5ecd8"><i class="sc-ink" style="background:#433728"></i><i class="sc-ink2" style="background:#b49e79"></i><i class="sc-mono" style="background:#78634a"></i><i class="sc-dlg" style="background:#90582f"></i></span>
+          <span class="sc-name">羊皮纸</span><span class="sc-tip">暖褐 · 怀旧纸质</span>
+        </button>
+        <button class="style-card" data-theme-opt="sage">
+          <span class="sc-preview" style="background:#eef2e5"><i class="sc-ink" style="background:#2e3827"></i><i class="sc-ink2" style="background:#a8b5a0"></i><i class="sc-mono" style="background:#5c6750"></i><i class="sc-dlg" style="background:#5d7a52"></i></span>
+          <span class="sc-name">青灯护眼</span><span class="sc-tip">墨绿 · 柔和不刺眼</span>
+        </button>
+        <button class="style-card" data-theme-opt="gold">
+          <span class="sc-preview" style="background:#1b150d"><i class="sc-ink" style="background:#efe3c6"></i><i class="sc-ink2" style="background:#6d5c3e"></i><i class="sc-mono" style="background:#c4b089"></i><i class="sc-dlg" style="background:#d4a54c"></i></span>
+          <span class="sc-name">鎏金之夜</span><span class="sc-tip">黑金 · 烛火鎏金</span>
+        </button>
+        <button class="style-card" data-theme-opt="mine">
+          <span class="sc-preview" id="mine-preview" style="background:#14100a"><i class="sc-ink" id="mine-ink" style="background:#eee2c4"></i><i class="sc-ink2" id="mine-ink2" style="background:#8a7a5c"></i><i class="sc-mono" id="mine-mono" style="background:#c2ae84"></i><i class="sc-dlg" id="mine-dlg" style="background:#d4a54c"></i></span>
+          <span class="sc-name">我的主题</span><span class="sc-tip">自定义配色</span>
+        </button>
+      </div>
+      <div class="so-label">书封皮肤</div>
+      <div class="cover-skin-row">
+        <button class="cover-chip" data-cover="classic"><span class="cc-mini"></span>经典</button>
+        <button class="cover-chip" data-cover="stars"><span class="cc-mini"></span>星夜</button>
+        <button class="cover-chip" data-cover="bamboo"><span class="cc-mini"></span>竹影</button>
+        <button class="cover-chip" data-cover="plum"><span class="cc-mini"></span>梅花</button>
+      </div>
+      <div class="so-label">正文字体</div>
+      <div class="so-fonts">
+        <button class="font-card" data-font="serif">宋<span class="fc-note">衬线 · 古典</span></button>
+        <button class="font-card" data-font="kai">楷<span class="fc-note">手写 · 温软</span></button>
+        <button class="font-card" data-font="sans">黑<span class="fc-note">简洁 · 现代</span></button>
+        <button class="font-card" data-font="round">圆<span class="fc-note">圆润 · 柔和</span></button>
+      </div>
+      <p class="so-note">之后随时点右下角调色盘按钮更换；字号、行距等细调在「阅读设置」里。</p>
+    </div>
+    <div class="so-foot"><button id="so-start" class="chip-btn">开始阅读</button></div>
+  </div>
+</div>
+
+<div id="keys-overlay" hidden role="dialog" aria-modal="true" aria-label="快捷键速查">
+  <div class="keys-card">
+    <div class="keys-head"><h2>快捷键速查</h2><button class="icon-btn" id="keys-close" aria-label="关闭"><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="keys-grid" id="keys-grid"></div>
+    <p class="keys-note">按 ? 随时呼出 · Esc 或点击空白处关闭</p>
+  </div>
+</div>
+
+<div id="panels">
+  <section id="panel-stats" class="panel" role="dialog" aria-modal="false" aria-label="阅读统计" hidden>
+    <div class="panel-head"><h2>阅读统计</h2><button class="icon-btn panel-x" data-close><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="panel-body">
+      <div class="stats-today">
+        <div class="st-block"><div class="stb-num" id="stat-today-min">0</div><div class="stb-cap">今日阅读 · 分钟</div></div>
+        <div class="st-block"><div class="stb-num" id="stat-today-words">0</div><div class="stb-cap">今日阅读字数</div></div>
+        <div class="st-block"><div class="stb-num" id="stat-total">0 分钟</div><div class="stb-cap">累计时长</div></div>
+        <div class="st-block"><div class="stb-num" id="stat-total-words">0</div><div class="stb-cap">累计字数</div></div>
+      </div>
+      <div class="stat-goal" id="stat-goal-wrap">
+        <div class="stat-goal-head"><span>今日目标</span><span id="stat-goal-val"></span></div>
+        <div class="goal-bar"><i id="goal-bar-i"></i></div>
+        <div class="stat-goal-note" id="stat-goal-note"></div>
+        <div class="goal-chips" id="goal-chips">
+          <button class="chip-btn" data-gmin="15">15 分</button>
+          <button class="chip-btn" data-gmin="30">30 分</button>
+          <button class="chip-btn" data-gmin="60">60 分</button>
+          <button class="chip-btn" data-gmin="0">关闭</button>
+        </div>
+      </div>
+      <div class="stat-streak" id="stat-streak"></div>
+      <div class="stat-chart-label">近 7 天（分钟）</div>
+      <div class="stat-chart" id="stat-chart"></div>
+      <p class="panel-note">统计只保存在本机浏览器，不联网；离开页面自动落盘。</p>
+    </div>
+  </section>
+
+  <section id="panel-settings" class="panel" role="dialog" aria-modal="false" aria-label="阅读设置" hidden>
+    <div class="panel-head"><h2>阅读设置</h2><button class="icon-btn panel-x" data-close><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="panel-body">
+      <fieldset class="set-group">
+        <legend>主题</legend>
+        <div class="theme-grid">
+          <button class="theme-card" data-theme-opt="night"><span class="tc-swatch" style="background:#1f1913"></span><span>深夜书房</span></button>
+          <button class="theme-card" data-theme-opt="dusk"><span class="tc-swatch" style="background:#161922"></span><span>薄暮</span></button>
+          <button class="theme-card" data-theme-opt="day"><span class="tc-swatch" style="background:#fbf8f1"></span><span>素纸白昼</span></button>
+          <button class="theme-card" data-theme-opt="sepia"><span class="tc-swatch" style="background:#f2e8d2"></span><span>羊皮纸</span></button>
+          <button class="theme-card" data-theme-opt="sage"><span class="tc-swatch" style="background:#edf2e4"></span><span>青灯护眼</span></button>
+          <button class="theme-card" data-theme-opt="gold"><span class="tc-swatch" style="background:#1b150d"></span><span>鎏金之夜</span></button>
+          <button class="theme-card" data-theme-opt="mine"><span class="tc-swatch mine-swatch" id="mine-swatch"></span><span>我的主题</span></button>
+        </div>
+        <label class="switch-row" style="margin-top:10px"><span>跟随系统明暗</span><input type="checkbox" id="set-themeAuto"><span class="switch"></span></label>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>字体</legend>
+        <div class="seg" id="seg-font">
+          <button data-font="serif">宋体</button>
+          <button data-font="sans">黑体</button>
+          <button data-font="kai">楷体</button>
+          <button data-font="round">圆体</button>
+        </div>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>字号 <span class="range-val" id="val-size"></span></legend>
+        <input type="range" id="set-size" min="14" max="28" step="1" aria-label="字号">
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>行距 <span class="range-val" id="val-lh"></span></legend>
+        <input type="range" id="set-lh" min="150" max="220" step="5" aria-label="行距">
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>段距 <span class="range-val" id="val-pg"></span></legend>
+        <input type="range" id="set-pg" min="40" max="200" step="5" aria-label="段距">
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>字距 <span class="range-val" id="val-ls"></span></legend>
+        <input type="range" id="set-ls" min="0" max="15" step="1" aria-label="字距">
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>阅读栏宽</legend>
+        <div class="seg" id="seg-width">
+          <button data-width="narrow">窄</button>
+          <button data-width="std">标准</button>
+          <button data-width="wide">宽</button>
+        </div>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>排版预设</legend>
+        <div class="preset-row" id="seg-presets">
+          <button class="preset-btn" data-preset="classic">古典 · 宋体大字宽行距</button>
+          <button class="preset-btn" data-preset="soft">温软 · 楷体</button>
+          <button class="preset-btn" data-preset="efficient">高效 · 黑体紧凑</button>
+        </div>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>排版开关</legend>
+        <label class="switch-row"><span>首行缩进</span><input type="checkbox" id="set-indent"><span class="switch"></span></label>
+        <label class="switch-row"><span>首字下沉</span><input type="checkbox" id="set-dropcap"><span class="switch"></span></label>
+        <label class="switch-row"><span>章首题页</span><input type="checkbox" id="set-openingTitle"><span class="switch"></span></label>
+        <label class="switch-row"><span>竖排精读（实验）</span><input type="checkbox" id="set-vertical"><span class="switch"></span></label>
+        <label class="switch-row"><span>语义化分段排版</span><input type="checkbox" id="set-semantic"><span class="switch"></span></label>
+        <label class="switch-row"><span>在线字体（需联网）</span><input type="checkbox" id="set-webFont"><span class="switch"></span></label>
+        <label class="switch-row"><span>打开时显示书架</span><input type="checkbox" id="set-shelfHome"><span class="switch"></span></label>
+        <label class="switch-row"><span>读到底自动进入下一章</span><input type="checkbox" id="set-autoNext"><span class="switch"></span></label>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>语音朗读</legend>
+        <div class="hue-row"><label for="set-voice">声音</label><select id="set-voice" aria-label="朗读声音"></select></div>
+        <div class="hue-row"><label for="set-rate">语速</label><input type="range" id="set-rate" min="6" max="20" step="1" aria-label="朗读语速"><span class="range-val" id="val-rate">1.0×</span></div>
+        <p class="panel-note">快捷键 R 开始/停止；滚轮或触摸随时停下。声音来自系统，完全离线。</p>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>阅读陪伴</legend>
+        <div class="goal-chips" id="break-chips">
+          <button class="chip-btn" data-bmin="30">每 30 分钟提醒</button>
+          <button class="chip-btn" data-bmin="45">45 分钟</button>
+          <button class="chip-btn" data-bmin="60">60 分钟</button>
+          <button class="chip-btn" data-bmin="0">关闭</button>
+        </div>
+        <p class="panel-note">按「专心阅读」时间累计（空闲不计时），到点只温柔提示，不打断。</p>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>自定义主题色（选「我的主题」生效）</legend>
+        <div class="hue-row"><label for="set-hue">色相</label><input type="range" id="set-hue" min="0" max="360" step="1" aria-label="强调色色相"><span class="range-val" id="val-hue"></span></div>
+        <div class="hue-row"><label for="set-lum">深浅</label><input type="range" id="set-lum" min="5" max="95" step="1" aria-label="背景深浅"><span class="range-val" id="val-lum"></span></div>
+        <p class="panel-note" style="margin-top:6px">色相=强调色基调，深浅=背景明暗（≤50 为暗色，＞50 为亮色）。</p>
+      </fieldset>
+      <fieldset class="set-group">
+        <legend>导出电子书</legend>
+        <div class="panel-actions">
+          <button id="btn-export-epub" class="ghost-btn"><svg class="ic"><use href="#i-book"/></svg>导出 EPUB 电子书</button>
+        </div>
+        <p class="panel-note">EPUB 是把整本书打包成标准电子书文件，拷进微信读书、掌阅、Apple 图书等阅读软件就能离线读，手机/平板看更舒服。</p>
+      </fieldset>
+      <div class="panel-actions">
+        <button id="btn-reset-settings" class="ghost-btn"><svg class="ic"><use href="#i-reset"/></svg>恢复默认</button>
+        <button id="btn-clear-data" class="ghost-btn danger"><svg class="ic"><use href="#i-trash"/></svg>清空书签与划线</button>
+        <button id="btn-backup" class="ghost-btn"><svg class="ic"><use href="#i-import"/></svg>备份数据</button>
+        <button id="btn-restore" class="ghost-btn"><svg class="ic"><use href="#i-import"/></svg>恢复数据</button>
+        <input type="file" id="file-restore" accept=".json" hidden>
+      </div>
+      <p class="panel-note" id="panel-note"></p>
+    </div>
+  </section>
+
+  <section id="panel-search" class="panel" role="dialog" aria-modal="false" aria-label="全文搜索" hidden>
+    <div class="panel-head"><h2>全文搜索</h2><button class="icon-btn panel-x" data-close><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="panel-body">
+      <div class="search-box">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <input id="search-input" type="text" placeholder="输入关键词，回车排查…">
+      </div>
+      <div id="search-results" class="results"></div>
+      <div id="search-hint" class="results-hint">在全部章节中搜索。点击结果跳转并高亮。</div>
+    </div>
+  </section>
+
+  <section id="panel-bookmarks" class="panel" role="dialog" aria-modal="false" aria-label="书签与划线" hidden>
+    <div class="panel-head"><h2>书签与划线</h2><button class="icon-btn panel-x" data-close><svg class="ic"><use href="#i-x"/></svg></button></div>
+    <div class="panel-body">
+      <div class="tabs">
+        <button class="tab active" data-tab="bm">书签</button>
+        <button class="tab" data-tab="mk">划线</button>
+      </div>
+      <div id="bm-list" class="results"></div>
+      <div id="mk-list" class="results" hidden></div>
+      <div class="panel-actions">
+        <button id="btn-export-anno" class="ghost-btn"><svg class="ic"><use href="#i-import"/></svg>导出批注 md</button>
+        <button id="btn-export-epub2" class="ghost-btn"><svg class="ic"><use href="#i-book"/></svg>导出 EPUB 电子书</button>
+        <p class="panel-note">EPUB 文件可导入微信读书、掌阅、Apple 图书等软件离线阅读。</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+/*__GSAP__*/
+</script>
+<script>
+window.BOOK_DATA = /*__BOOKS_JSON__*/;
+/*__APP__*/
+</script>
+</body>
+</html>

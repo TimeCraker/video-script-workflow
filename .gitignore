@@ -1,0 +1,21 @@
+# ---- OS 垃圾 ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# ---- 临时产物 ----
+*.tmp
+*.log
+*~
+node_modules/
+
+# ---- 视频生成工具（Hilo）运行时状态：sqlite 索引 / 缩略图 / 视频流缓存 / 文本版本对象，可再生 ----
+.hilo/
+
+# ---- 可再生成的构建 / 导出产物 ----
+# 阅读器：由 阅读器/build.mjs 扫描全部 md 一键重建（双击 更新章节.bat）
+阅读器/阅读器.html
+# 视频生成样片：由仓内提示词经视频生成工具导出的产物（约 12MB），不入库
+视频生成器/动漫流/C Users TimeCraker D/暑假温泉合宿十秒样片.mp4
