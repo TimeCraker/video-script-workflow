@@ -1,9 +1,19 @@
-# video-script-workflow
+<div align="center">
 
-> AI 动漫短剧剧本与分镜创作工坊：把模糊的创作想法打磨成直接喂给 AI 视频生成模型的完整剧本、分镜与提示词流水线。
+<img src="docs/banner.svg" alt="video-script-workflow banner" width="920"/>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Workflow: AI Scripting](https://img.shields.io/badge/Workflow-VidScript%20Agent-orange.svg)](agent.md)
+<br/>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Workflow: AI Scripting](https://img.shields.io/badge/Workflow-VidScript%20Agent-F43F5E.svg?style=flat-square)](agent.md)
+[![Output: Kling / Runway / Sora](https://img.shields.io/badge/Output-Kling%20%7C%20Runway%20%7C%20Sora-A855F7.svg?style=flat-square)](#核心理念与四层递进结构)
+[![Reader: Local HTML5](https://img.shields.io/badge/Reader-Interactive%20HTML5-38BDF8.svg?style=flat-square)](#-沉浸式阅读器)
+
+<br/>
+
+**把模糊的创作想法打磨成直接喂给 AI 视频生成模型的完整剧本、分镜与提示词流水线。**
+
+</div>
 
 ---
 
